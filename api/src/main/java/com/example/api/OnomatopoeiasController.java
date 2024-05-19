@@ -15,39 +15,13 @@ public class OnomatopoeiasController {
     OnomatopoeiasService onomatopoeiasService;
 
     @ExceptionHandler
-//    public String handleException(OnomatopoeiaNotFoundException exception) {
-//        return exception.getMessage();
-//    }
-
-
-//    List<String> meals = new ArrayList<>();
-//    {
-//        meals.addAll(List.of("Chicken and Mushroom risotto", "Chicken korma", "King Prawn linguine"));
-//    }
-
     public ResponseEntity<String> handleExceptions(OnomatopoeiaNotFoundException exception) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
-
-//     READ
-//    public List<Meal> getMeals() {
-//        return mealService.getAllMeals();
-//    }
 
     @GetMapping("/onomatopoeias")
     public ResponseEntity<List<Onomatopoeia>> getOnomatopoeias() {
         System.out.println("INSIDE GET onomatopoeias()");
         return ResponseEntity.status(HttpStatus.OK).body(onomatopoeiasService.getAllOnomatopoeias());
     }
-
-
-    // CREATE
-
-    // READ
-
-//    @GetMapping("/meals")
-//    public List<String> getMeals() {
-//        return meals;
-//    }
-
 }
