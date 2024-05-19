@@ -1,0 +1,27 @@
+@use "../../styles/variables" as *;
+
+.nav {
+  width: 100%;
+  background-color: $color-white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  transition: 500ms ease;
+  padding-top: 15px;
+  position: fixed;
+  top: 0;
+  height: 70px;
+  font-weight: 700;
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__item {
+    font-size: 18px;
+    margin: 10px 0;
+    color: $color-black;
+    list-style-type: none;
+    text-decoration: none;
+  }
+}
