@@ -21,7 +21,6 @@ public class OnomatopoeiasController {
 
     @GetMapping("/onomatopoeias")
     public ResponseEntity<List<Onomatopoeia>> getOnomatopoeias() {
-        System.out.println("INSIDE GET onomatopoeias()");
         return ResponseEntity.status(HttpStatus.OK).body(onomatopoeiasService.getAllOnomatopoeias());
     }
 }
