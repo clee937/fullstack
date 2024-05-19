@@ -1,0 +1,29 @@
+@use "../../styles/variables" as *;
+
+.onomatopoeia {
+  margin: 0 auto;
+  padding: 10px;
+  color: $color-white;
+  border-radius: 5px;
+  height: 100%;
+  background-color: $color-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__title {
+    font-size: 20px;
+    margin: 0;
+    color: $color-white;
+    z-index: 1;
+    position: relative;
+  }
+
+  &__text {
+    font-size: 12px;
+    font-weight: lighter;
+    color: $color-white;
+    z-index: 1;
+    position: relative;
+  }
+}
