@@ -5,6 +5,7 @@ import Nav from "./components/Nav/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import OptionType from "./types/OptionType";
+import CreateOnomatopoeia from "./containers/CreateOnomatopoeia/CreateOnomatopoeia";
 
 const App = () => {
   const [categories, setCategories] = useState<OptionType[]>([]);
@@ -30,6 +31,10 @@ const App = () => {
         <Route
           path="/onomatopoeias"
           element={<ViewOnomatopoeias categories={categories} />}
+        />
+        <Route
+          path="/onomatopoeia/create"
+          element={<CreateOnomatopoeia categories={categories} />}
         />
         {/* <Route
           path="/onomatopoeias/:id"

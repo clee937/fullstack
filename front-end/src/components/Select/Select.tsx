@@ -1,5 +1,6 @@
 import { ChangeEventHandler } from "react";
 import OptionType from "../../types/OptionType";
+import "./Select.scss";
 
 type SelectProps = {
   options: OptionType[];
@@ -21,7 +22,13 @@ const Select = ({
   return (
     <>
       <label htmlFor={label}>{labelText}</label>
-      <select name={label} id={label} onChange={onChange} value={defaultValue}>
+      <select
+        className="select"
+        name={label}
+        id={label}
+        onChange={onChange}
+        value={defaultValue}
+      >
         {<option value={defaultOption}>{defaultOption}</option>}
         {options.map(({ name, id }) => (
           <option key={label + id} value={id}>

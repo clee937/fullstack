@@ -22,6 +22,9 @@ public interface OnomatopoeiasRepository extends JpaRepository<Onomatopoeia, Lon
     @Query(value = "SELECT DISTINCT id FROM onomatopoeias ORDER BY id", nativeQuery = true)
     List<Long> getDistinctIds();
 
+    @Query(value = "SELECT * FROM onomatopoeias WHERE id = :id", nativeQuery = true)
+    Onomatopoeia getOnomatopoeiaById(@Param("id") long id);
+
     @Query(value="SELECT * FROM onomatopoeias", nativeQuery = true)
     List<Onomatopoeia> getAllOnomatopoeias();
 

@@ -1,5 +1,6 @@
 package com.example.api;
 
+import com.example.api.models.Category;
 import com.example.api.models.Onomatopoeia;
 import com.example.api.repositories.CategoryRepository;
 import com.example.api.repositories.OnomatopoeiasRepository;
@@ -17,6 +18,25 @@ public class OnomatopoeiasService {
     OnomatopoeiasRepository onomatopoeiasRepository;
     @Autowired
     CategoryRepository categoryRepository;
+
+    // CREATE
+
+    public Onomatopoeia addOnomatopoeia(Onomatopoeia onomatopoeia) {
+        //Validate greeting and check for null values
+        //Greeting newGreeting = new Greeting(greeting.getId());
+
+        // Validate a greeting
+        Category category = categoryRepository.findById(onomatopoeia.getCategoryId()).orElseThrow(() -> new NotFoundException("Category Not Found"));
+
+        Onomatopoeia newOnomatopoeia = onomatopoeiasRepository.save(onomatopoeia);
+
+        // The data returned has the join
+
+        newOnomatopoeia.setCategory(category);
+        System.out.println(newOnomatopoeia);
+
+        return newOnomatopoeia;
+    }
 
     // READ
     public List<Onomatopoeia> getAllOnomatopoeias(int limit) {

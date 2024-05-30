@@ -18,7 +18,7 @@ const Nav = () => {
         </li>
 
         <li className="nav__item">
-          <Link className="nav__item" to="/">
+          <Link className="nav__item" to="/onomatopoeia/create">
             Add Onomatopoeia
           </Link>
         </li>

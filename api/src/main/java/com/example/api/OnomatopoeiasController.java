@@ -21,6 +21,14 @@ public class OnomatopoeiasController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
+    // CREATE
+
+    @PostMapping("/onomatopoeia")
+    public ResponseEntity<Onomatopoeia> createOnomatopoeia(@RequestBody Onomatopoeia onomatopoeia) {
+        Onomatopoeia newOnomatopoeia = onomatopoeiaService.addOnomatopoeia(onomatopoeia);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newOnomatopoeia);
+    }
+
     // READ
 
     @GetMapping("/onomatopoeias")

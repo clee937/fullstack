@@ -3,7 +3,28 @@ $color-black: #202020;
 
 $color-primary: #c33458;
 $color-secondary: #8089a5;
+$color-primary-dark: darken($color-primary, 5%);
+$color-primary-light: lighten($color-primary, 20%);
 $color-secondary-light: lighten($color-secondary, 20%);
 $color-secondary-dark: darken($color-secondary, 20%);
 
+$font-primary: "Arial, Helvetica, sans-serif";
+
 $desktop: 768px;
+
+@mixin button {
+  display: inline-block;
+  background: $color-primary;
+  border-radius: 10px;
+  padding: 1em 2em;
+  color: $color-white;
+  margin-right: 0.5em;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border: none;
+
+  &:hover {
+    background: darken($color-primary, 5%);
+  }
+}
