@@ -14,7 +14,7 @@ const OnomatopoeiasList = ({ onomatopoeias }: OnomatopoeiasListProps) => {
         {onomatopoeias.map((onomatopoeia) => (
           <Link
             key={onomatopoeia.id}
-            to={""}
+            to={`/onomatopoeia/edit/${onomatopoeia.id}`}
             style={{ textDecoration: "none" }}
           >
             <Onomatopoeia onomatopoeia={onomatopoeia} />

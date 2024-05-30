@@ -1,5 +1,5 @@
 import { ChangeEventHandler } from "react";
-import OptionType from "../../types/OptionTypes";
+import OptionType from "../../types/OptionType";
 
 type SelectProps = {
   options: OptionType[];

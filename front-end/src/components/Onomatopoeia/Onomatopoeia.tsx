@@ -10,7 +10,7 @@ const Onomatopoeia = ({ onomatopoeia }: OnomatopoeiaProp) => {
     onomatopoeia: onomatopoeiaText,
     meaning,
     example,
-    category,
+    category: { name } = { name: "NO CATEGORY" },
   } = onomatopoeia;
 
   return (
@@ -18,7 +18,7 @@ const Onomatopoeia = ({ onomatopoeia }: OnomatopoeiaProp) => {
       <h3 className="onomatopoeia__title">{onomatopoeiaText}</h3>
       <p className="onomatopoeia__text">Meaning: {meaning}</p>
       <p className="onomatopoeia__text">Example: {example}</p>
-      <p className="onomatopoeia__text">Category: {category}</p>
+      <p className="onomatopoeia__text">Category: {name}</p>
     </div>
   );
 };
