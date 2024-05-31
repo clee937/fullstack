@@ -27,6 +27,8 @@
     border-radius: 5px;
     padding: 0.8em 2em;
     color: white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     &:hover {
       background: darken($color-primary, 5%);
     }

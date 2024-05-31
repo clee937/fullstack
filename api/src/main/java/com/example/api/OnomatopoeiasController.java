@@ -62,4 +62,11 @@ public class OnomatopoeiasController {
         Onomatopoeia updatedOnomatopoeia = onomatopoeiaService.updateOnomatopoeia(newOnomatopoeia, id);
         return ResponseEntity.status(HttpStatus.OK).body(updatedOnomatopoeia);
     }
+
+    // DELETE
+    @DeleteMapping("onomatopoeia/{id}")
+    public ResponseEntity<Void> deleteGreetingById(@PathVariable long id) {
+        onomatopoeiaService.deleteOnomatopoeiaById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

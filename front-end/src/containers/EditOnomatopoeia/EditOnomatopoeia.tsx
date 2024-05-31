@@ -6,6 +6,7 @@ import "./EditOnomatopoeia.scss";
 import OnomatopoeiaRequest from "../../types/OnomatopoeiaRequest";
 import OnomatopoeiaResponse from "../../types/OnomatopoeiaResponse";
 import OptionType from "../../types/OptionType";
+import Spinner from "../../components/spinner/Spinner";
 
 type EditOnomatopoeiaProps = {
   categories: OptionType[];
@@ -61,6 +62,7 @@ const EditOnomatopoeia = ({ categories }: EditOnomatopoeiaProps) => {
       alert("Onomatopoeia updated");
       const updated = await result.json();
       setOnomatopoeia(updated);
+      navigate("/onomatopoeias");
     } else {
       const message = await result.text();
       alert(message);
@@ -77,7 +79,7 @@ const EditOnomatopoeia = ({ categories }: EditOnomatopoeiaProps) => {
 
     if (result.ok) {
       alert("Onomatopoeia deleted");
-      navigate("/");
+      navigate("/onomatopoeias");
     } else {
       const message = await result.text();
       alert(message);
@@ -87,7 +89,7 @@ const EditOnomatopoeia = ({ categories }: EditOnomatopoeiaProps) => {
   const handleShowForm = () => setShowForm(!showForm);
 
   //spinner
-  if (!onomatopoeia) return "no onomatopoeia";
+  if (!onomatopoeia) return <Spinner />;
 
   const formOnomatopoeia: OnomatopoeiaRequest | null = onomatopoeia
     ? getFormOnomatopoeia(onomatopoeia)

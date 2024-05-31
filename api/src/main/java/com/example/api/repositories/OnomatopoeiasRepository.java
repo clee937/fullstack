@@ -28,6 +28,7 @@ public interface OnomatopoeiasRepository extends JpaRepository<Onomatopoeia, Lon
     @Query(value="SELECT * FROM onomatopoeias", nativeQuery = true)
     List<Onomatopoeia> getAllOnomatopoeias();
 
-
+    // DELETE
+    void deleteOnomatopoeiaById(long id);
 
 }

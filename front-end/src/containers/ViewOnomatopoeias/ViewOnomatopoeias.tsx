@@ -4,6 +4,7 @@ import OnomatopoeiaResponse from "../../types/OnomatopoeiaResponse";
 import OnomatopoeiasList from "../../components/OnomatopoeiasList/OnomatopoeiasList";
 import Select from "../../components/Select/Select";
 import OptionType from "../../types/OptionType";
+import Spinner from "../../components/spinner/Spinner";
 
 type ViewOnomatopoeiasProps = {
   categories: OptionType[];
@@ -49,6 +50,10 @@ const ViewOnomatopoeias = ({ categories }: ViewOnomatopoeiasProps) => {
     console.log(`Event: ${typeof event.currentTarget}`);
     setSelectedCategory(event.currentTarget.value);
   };
+
+  const isLoading = !(onomatopoeias.length > 0) && !(categories.length > 0);
+
+  if (isLoading) return <Spinner />;
 
   return (
     <section className="view-onomatopoeias">

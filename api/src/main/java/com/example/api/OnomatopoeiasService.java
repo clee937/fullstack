@@ -6,6 +6,7 @@ import com.example.api.repositories.CategoryRepository;
 import com.example.api.repositories.OnomatopoeiasRepository;
 import com.example.api.responses.Option;
 import com.example.api.responses.OptionContract;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -83,6 +84,15 @@ public class OnomatopoeiasService {
         updatedOnomatopoeia.setCategory(category);
 
         return updatedOnomatopoeia;
+    }
+
+    // DELETE
+    @Transactional
+    public void deleteOnomatopoeiaById(long id) {
+        if (!onomatopoeiasRepository.existsById(id)) {
+            throw new NotFoundException("Onomatopoeia not found");
+        }
+        onomatopoeiasRepository.deleteOnomatopoeiaById(id);
     }
 
     // HELPER
