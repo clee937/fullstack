@@ -55,4 +55,11 @@ public class OnomatopoeiasController {
     public ResponseEntity<Onomatopoeia> getOnomatopoeiaById(@PathVariable long id) {
         return ResponseEntity.status(HttpStatus.OK).body(onomatopoeiaService.getOnomatopoeiaById(id));
     }
+
+    // UPDATE
+    @PutMapping("/onomatopoeia/{id}")
+    public ResponseEntity<Onomatopoeia> updateOnomatopoeia(@RequestBody Onomatopoeia newOnomatopoeia, @PathVariable long id) {
+        Onomatopoeia updatedOnomatopoeia = onomatopoeiaService.updateOnomatopoeia(newOnomatopoeia, id);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedOnomatopoeia);
+    }
 }

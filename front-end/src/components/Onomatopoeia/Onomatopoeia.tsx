@@ -10,7 +10,9 @@ const Onomatopoeia = ({ onomatopoeia }: OnomatopoeiaProp) => {
     onomatopoeia: onomatopoeiaText,
     meaning,
     example,
-    category: { name } = { name: "NO CATEGORY" },
+    category: { name } = {
+      name: "NO CATEGORY",
+    },
   } = onomatopoeia;
 
   return (

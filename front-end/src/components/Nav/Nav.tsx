@@ -13,13 +13,13 @@ const Nav = () => {
 
         <li className="nav__item">
           <Link className="nav__item" to="/onomatopoeias">
-            Onomatopoeias
+            See all…
           </Link>
         </li>
 
         <li className="nav__item">
           <Link className="nav__item" to="/onomatopoeia/create">
-            Add Onomatopoeia
+            Add
           </Link>
         </li>
       </ul>

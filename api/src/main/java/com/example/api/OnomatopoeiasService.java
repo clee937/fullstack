@@ -7,6 +7,7 @@ import com.example.api.repositories.OnomatopoeiasRepository;
 import com.example.api.responses.Option;
 import com.example.api.responses.OptionContract;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -67,6 +68,21 @@ public class OnomatopoeiasService {
 
     public Onomatopoeia getOnomatopoeiaById(long id) {
         return onomatopoeiasRepository.findById(id).orElseThrow(() -> new NotFoundException("Onomatopoeia Not Found"));
+    }
+
+    // UPDATE
+    @Modifying
+    public Onomatopoeia updateOnomatopoeia(Onomatopoeia newOnomatopoeia, long id) {
+        if(!onomatopoeiasRepository.existsById(id)) {
+            throw new NotFoundException("Onomatopoeia not found");
+        }
+
+        Category category = categoryRepository.findById(newOnomatopoeia.getCategoryId()).orElseThrow(() -> new NotFoundException("Category not found"));
+
+        Onomatopoeia updatedOnomatopoeia = onomatopoeiasRepository.save(newOnomatopoeia);
+        updatedOnomatopoeia.setCategory(category);
+
+        return updatedOnomatopoeia;
     }
 
     // HELPER

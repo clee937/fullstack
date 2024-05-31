@@ -41,14 +41,14 @@ const Form = ({
       <h2 className="form-container__title">{formTitle}</h2>
       <form className="form-container__form" onSubmit={handleValidation}>
         <Select
-          labelText={"Select category : "}
+          labelText={"Select category: "}
           label={"categoryId"}
           options={categories}
           onChange={(event) => handleInput(event, "categoryId")}
           defaultOption={"---"}
           defaultValue={onomatopoeia.categoryId.toString()}
         />
-        <label htmlFor="onomatopoeia">Onomatopoeia :</label>
+        <label htmlFor="onomatopoeia">Onomatopoeia:</label>
         <input
           id="onomatopoeia"
           className="form-container__input"
@@ -57,7 +57,7 @@ const Form = ({
           value={onomatopoeia.onomatopoeia}
           onInput={(event) => handleInput(event, "onomatopoeia")}
         />
-        <label htmlFor="meaning">Meaning :</label>
+        <label htmlFor="meaning">Meaning:</label>
         <input
           id="meaning"
           className="form-container__input"
@@ -66,7 +66,7 @@ const Form = ({
           type="text"
           onInput={(event) => handleInput(event, "meaning")}
         />
-        <label htmlFor="exampe">Example :</label>
+        <label htmlFor="exampe">Example:</label>
         <input
           id="example"
           className="form-container__input"
