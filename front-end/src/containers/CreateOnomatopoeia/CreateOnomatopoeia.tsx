@@ -42,7 +42,6 @@ const CreateOnomatopoeia = ({ categories }: CreateOnomatopoeiaProps) => {
 
   return (
     <section className="create-onomatopoeia">
-      <h2 className="create-onomatopoeia__title">Create an Onomatopoeia</h2>
       <Form
         handleSubmit={handleSubmit}
         defaultFormState={defaultFormState}

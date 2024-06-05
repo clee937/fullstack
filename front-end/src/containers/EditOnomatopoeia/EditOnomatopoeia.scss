@@ -4,10 +4,11 @@
   &__title {
     margin: 5em auto 1em auto;
     text-align: center;
+    color: $color-primary;
   }
 
   &__content {
-    margin: auto;
+    margin: 0 auto;
     width: fit-content;
     max-width: 500px;
   }

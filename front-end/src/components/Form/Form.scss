@@ -6,38 +6,38 @@
   min-width: 320px;
   max-width: 475px;
   background: $color-white;
-  margin: 80px auto 0 auto;
+  margin: 0 auto 80px auto;
 
   &__title {
     width: 100%;
-    color: #202020;
+    color: $color-primary;
     letter-spacing: 0.5px;
     font-weight: 700;
     font-size: 1.35em;
     display: block;
-    padding: 0.75em 1em 0.75em 1.5em;
-    margin: 0;
-    margin-bottom: 1rem;
+    padding: 2em 1em 1.5em 1.5em;
     text-align: center;
   }
 
   &__form {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__field {
+    display: flex;
     width: 100%;
-    padding: 2em;
-    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__input {
-    display: block;
-    margin: auto auto;
-    width: 100%;
-    padding: 0.5em 0;
-    border: none;
-    border-bottom: 1px solid #eaeaea;
-    padding-bottom: 1.25em;
-    color: $color-black;
+    padding: 0.5rem;
+    width: 60%;
+    border-radius: 5px;
+    outline: auto;
 
     &:focus {
       outline: none;
@@ -48,5 +48,15 @@
     margin-top: 1em;
     grid-column: 1/-1;
     @include button;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .form-container {
+    width: 90%;
+
+    &__field {
+      width: 76%;
+    }
   }
 }

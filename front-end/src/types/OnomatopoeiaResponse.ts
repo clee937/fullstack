@@ -4,7 +4,7 @@ type OnomatopoeiaResponse = {
   meaning: string;
   example: string;
   categoryId: number;
-  category: { id: number; name: string; categoryUrl: string };
+  category: { id: number; name: string; categoryInfo: string };
 };
 
 export default OnomatopoeiaResponse;

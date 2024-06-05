@@ -20,10 +20,12 @@ const Select = ({
   defaultValue = "",
 }: SelectProps) => {
   return (
-    <>
-      <label htmlFor={label}>{labelText}</label>
+    <div className="select">
+      <label htmlFor={label} className="select__label">
+        {labelText}{" "}
+      </label>
       <select
-        className="select"
+        className="select__box"
         name={label}
         id={label}
         onChange={onChange}
@@ -36,7 +38,7 @@ const Select = ({
           </option>
         ))}
       </select>
-    </>
+    </div>
   );
 };
 

@@ -1,12 +1,32 @@
+@use "./../../styles/variables" as *;
+
 .view-onomatopoeias {
   &__title {
     margin: 8rem auto;
     margin-bottom: 2rem;
     text-align: center;
+    color: $color-primary;
+    font-size: 2rem;
+    padding: 0 10px 10px 10px;
   }
 
   &__form {
     text-align: center;
-    margin: 20px 0;
+    margin: 30px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .view-onomatopoeias {
+    &__form {
+      margin: 20px auto;
+      width: 640px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 }

@@ -1,17 +1,40 @@
 @use "./../../styles/variables" as *;
 
-.heading {
-  font-size: 2rem;
-  line-height: 3rem;
-  text-align: center;
-  margin: 180px auto;
-  width: 80%;
-  color: $color-primary;
+.home {
+  &__heading {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+    margin: 120px auto 50px auto;
+    width: 80%;
+    color: $color-primary;
+  }
+
+  &__sub-heading,
+  &__classifications {
+    margin: 30px;
+    color: $color-primary;
+  }
+
+  &__classifications {
+    margin-left: 60px;
+    line-height: 1.6rem;
+  }
+
+  &__paragraph {
+    margin: 30px;
+    line-height: 1.5rem;
+    &--source {
+      font-size: 14px;
+    }
+  }
 }
 
 @media screen and (min-width: $desktop) {
-  .heading {
-    font-size: 3.5rem;
-    line-height: 5rem;
+  .home {
+    &__heading {
+      font-size: 2.5rem;
+      line-height: 5rem;
+    }
   }
 }

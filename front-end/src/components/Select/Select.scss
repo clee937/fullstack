@@ -1,5 +1,19 @@
+@use "./../../styles/variables" as *;
+
 .select {
-  border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 10px;
+  width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &__label {
+    width: 300px;
+  }
+
+  &__box {
+    padding: 0.5rem;
+    width: 240px;
+    border-radius: 5px;
+    outline: auto;
+  }
 }

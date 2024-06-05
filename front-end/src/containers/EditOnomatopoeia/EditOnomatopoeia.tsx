@@ -6,7 +6,7 @@ import "./EditOnomatopoeia.scss";
 import OnomatopoeiaRequest from "../../types/OnomatopoeiaRequest";
 import OnomatopoeiaResponse from "../../types/OnomatopoeiaResponse";
 import OptionType from "../../types/OptionType";
-import Spinner from "../../components/spinner/Spinner";
+import Spinner from "../../components/Spinner/Spinner";
 
 type EditOnomatopoeiaProps = {
   categories: OptionType[];

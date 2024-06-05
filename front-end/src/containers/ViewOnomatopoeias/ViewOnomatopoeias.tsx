@@ -1,10 +1,12 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import "./ViewOnomatopoeias.scss";
 import OnomatopoeiaResponse from "../../types/OnomatopoeiaResponse";
 import OnomatopoeiasList from "../../components/OnomatopoeiasList/OnomatopoeiasList";
 import Select from "../../components/Select/Select";
 import OptionType from "../../types/OptionType";
-import Spinner from "../../components/spinner/Spinner";
+import Spinner from "../../components/Spinner/Spinner";
+import SearchBar from "../../components/Search/Search";
+import Category from "../../components/Category/Category";
 
 type ViewOnomatopoeiasProps = {
   categories: OptionType[];
@@ -17,6 +19,7 @@ const ViewOnomatopoeias = ({ categories }: ViewOnomatopoeiasProps) => {
     []
   );
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   const getOnomatopoeias = async (
     category: string,
@@ -29,15 +32,10 @@ const ViewOnomatopoeias = ({ categories }: ViewOnomatopoeiasProps) => {
         (cat) => cat.id.toString() === category
       )?.name;
       url += `?categoryName=${categoryParam}`;
-
-      console.log(`typeof category is: ${typeof category}`);
-      console.log(`CategoryArray is: ${categoriesArr}`);
-      console.log(`The url is is: ${url}`);
     }
 
     const response = await fetch(url);
     const onomatopoeiaData = await response.json();
-    console.log(`Onomatopoeia data: ${onomatopoeiaData}`);
     setOnomatopoeias(onomatopoeiaData);
   };
 
@@ -46,10 +44,22 @@ const ViewOnomatopoeias = ({ categories }: ViewOnomatopoeiasProps) => {
   }, [selectedCategory, categories]);
 
   const handleSelectCategory = (event: ChangeEvent<HTMLSelectElement>) => {
-    console.log(`typeof: ${typeof event.currentTarget.value}`);
-    console.log(`Event: ${typeof event.currentTarget}`);
     setSelectedCategory(event.currentTarget.value);
   };
+
+  const handleInput = (event: FormEvent<HTMLInputElement>) => {
+    const input = event.currentTarget.value.toLowerCase();
+    setSearchTerm(input);
+  };
+
+  const filteredOnomatopoeias: OnomatopoeiaResponse[] = onomatopoeias.filter(
+    (onomatopoeia) => {
+      if (searchTerm) {
+        return onomatopoeia.onomatopoeia.toLowerCase().includes(searchTerm);
+      }
+      return onomatopoeia;
+    }
+  );
 
   const isLoading = !(onomatopoeias.length > 0) && !(categories.length > 0);
 
@@ -57,18 +67,31 @@ const ViewOnomatopoeias = ({ categories }: ViewOnomatopoeiasProps) => {
 
   return (
     <section className="view-onomatopoeias">
-      <h2 className="view-onomatopoeias__title">Japanese Onomatopoeias…</h2>
+      <h2 className="view-onomatopoeias__title">Japanese Onomatopoeia</h2>
       <form className="view-onomatopoeias__form">
+        <SearchBar
+          label="Search"
+          searchTerm={searchTerm}
+          placeHolderText="Search by name..."
+          handleInput={handleInput}
+        />
+
         <Select
           defaultOption={default_onomatopoeia}
           defaultValue={selectedCategory}
           options={categories}
           onChange={handleSelectCategory}
           label="categories"
-          labelText="Select a category: "
+          labelText="Select a category"
         />
       </form>
-      <OnomatopoeiasList onomatopoeias={onomatopoeias} />
+      {selectedCategory && selectedCategory != "View all" && (
+        <Category
+          category={onomatopoeias[0].category.name}
+          info={onomatopoeias[0].category.categoryInfo}
+        />
+      )}
+      <OnomatopoeiasList onomatopoeias={filteredOnomatopoeias} />
     </section>
   );
 };
