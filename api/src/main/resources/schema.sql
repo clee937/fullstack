@@ -1,12 +1,12 @@
-DROP DATABASE IF EXISTS onomatopoeias;
+--DROP DATABASE IF EXISTS onomatopoeias;
 
-CREATE DATABASE onomatopoeias;
+--CREATE DATABASE onomatopoeias;
 
 USE onomatopoeias;
 
 CREATE TABLE `categories` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `category_url` varchar(255) DEFAULT NULL,
+  `category_info` varchar(500) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
