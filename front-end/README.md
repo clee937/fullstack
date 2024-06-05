@@ -16,7 +16,7 @@ Japanese Onomatopoeias is a full stack application for Japanese learners to stor
 
 ## Preview
 
-![japanese-onomatopoeia](/japaneseonomatopoeias.png "image of japanese onomatopoeia fullstack app")
+![japaneseonomatopoeias](/japaneseonomatopoeias.png "image of japanese onomatopoeia fullstack app")
 
 ## Code / Appication architecture
 
