@@ -18,7 +18,7 @@ Japanese Onomatopoeias is a full stack application for Japanese learners to stor
 
 ![japanese-onomatopoeias](/japanese-onomatopoeias.png "image of japanese onomatopoeia fullstack app")
 
-## Code / Appication architecture
+## Code / Application architecture
 
 ### Front-end
 
@@ -29,7 +29,7 @@ Japanese Onomatopoeias is a full stack application for Japanese learners to stor
 ### Back-end
 
 - The back-end of this application comprises of a MySQL database with CRUD functionality allowing for records to be created, retrieved, updated, and deleted.
-- Data is stored within 2 tables: Onomatopoeias and Categories, with a many-to-many (many onomatopoeias to one category) and one-to-one (one category per onomatopoeia) relationships. The two tables are joined by the category id.
+- Data is stored within 2 tables: Onomatopoeias and Categories, with a many-to-many (many onomatopoeias to one category) and one-to-one (one category to one onomatopoeia) relationships. The two tables are joined by the category id.
 - The api and backend is written with Java and Spring and follows MVC and Service Repository patterns to communicate and pass data from the database to the front-end.
 - It is separated into 3 parts each with their own role for a clear separation of concerns:
   - The onomatopoeia controller is the entryway into the back-end and the database. It holds the endpoints and is responsible for interaction with the front end of the application (View) by exposing the functionality of the api so it can be used. It delegates the role of interacting with the onomatopoeia repository to the onomatopoeia service.
