@@ -1,0 +1,25 @@
+@use "./../../styles/variables" as *;
+
+.search-bar {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  outline: $color-primary;
+
+  &__input {
+    padding: 0.5rem;
+    width: 220px;
+    border-radius: 5px;
+    outline: $color-primary;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .search-bar {
+    &__input {
+      width: 240px;
+      outline: $color-primary;
+    }
+  }
+}
