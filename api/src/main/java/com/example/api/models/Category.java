@@ -15,7 +15,7 @@ public class Category implements OptionContract {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private String categoryUrl;
+    private String categoryInfo;
 
     public long getId() {
         return id;
@@ -33,12 +33,12 @@ public class Category implements OptionContract {
         this.name = name;
     }
 
-    public String getCategoryUrl() {
-        return categoryUrl;
+    public String getCategoryInfo() {
+        return categoryInfo;
     }
 
-    public void setCategoryUrl(String categoryUrl) {
-        this.categoryUrl = categoryUrl;
+    public void setCategoryInfo(String categoryInfo) {
+        this.categoryInfo = categoryInfo;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Category implements OptionContract {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", categoryUrl='" + categoryUrl + '\'' +
+                ", categoryInfo='" + categoryInfo + '\'' +
                 '}';
     }
 }
